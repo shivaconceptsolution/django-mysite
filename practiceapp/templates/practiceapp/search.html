@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        input[type="text"],ul
+        {
+            width:400px;
+            height: 30px;
+           
+            margin-left: 100px;
+        }
+        input[type="text"]
+        {
+            margin-top: 100px;
+        }
+    </style>
+    <script>
+        function searchdata(param)
+        {
+             var xmlhttp = new XMLHttpRequest();
+             xmlhttp.onreadystatechange=function(){
+               document.getElementById("res").innerHTML = xmlhttp.responseText;
+             }
+             xmlhttp.open("GET","/practice/ajaxdata?q="+param,true);
+             xmlhttp.send();
+        }
+        function displayCity(param)
+        {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function(){
+              document.getElementById("res").innerHTML = xmlhttp.responseText;
+            }
+            xmlhttp.open("GET","/practice/displaycity?q="+param,true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="Enter content to search record" onkeyup="searchdata(this.value)" />
+    <br />
+    <div id="res">
+
+    </div>
+</body>
+</html>
